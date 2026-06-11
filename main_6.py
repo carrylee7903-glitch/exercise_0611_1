@@ -5,12 +5,12 @@ import streamlit as st
 from langchain_community.document_loaders import (  PyPDFLoader )
 from langchain_text_splitters import (    RecursiveCharacterTextSplitter )
 from langchain_chroma import (    Chroma  )
-from langchain_openai import (  OpenAIEmbeddings,    ChatOpenAI )
+from langchain_openai import   OpenAIEmbeddings,    ChatOpenAI 
 from langchain_classic.chains import (   create_retrieval_chain )
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
 
 from langchain_core.prompts import (   ChatPromptTemplate )
-from langchain_core.callbacks import (   BaseCallbackHandler )
+from langchain_core.callbacks import   BaseCallbackHandler
 
 st.title("📄 PDF File Reader")
 st.write("----------------")
@@ -39,11 +39,7 @@ def pdf_to_document(uploaded_file):
     pages = loader.load()
     return pages
 
-class StreamHandler(
-    BaseCallbackHandler
-):
-
-
+class StreamHandler(  BaseCallbackHandler ):
     """
     GPT가 토큰을 생성할 때마다
     Streamlit 화면에 출력하는 Handler
@@ -69,7 +65,7 @@ class StreamHandler(
 
 if uploaded_file is not None:
     pages = pdf_to_document(   uploaded_file   )
-    st.success(   f"PDF 페이지 : {len(pages)}"  )
+    # st.success(   f"PDF 페이지 : {len(pages)}"  )
 
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=500,
@@ -78,7 +74,7 @@ if uploaded_file is not None:
 
     texts = text_splitter.split_documents(    pages   )
 
-    st.info(  f"문서 조각 : {len(texts)}"  )
+    # st.info(  f"문서 조각 : {len(texts)}"  )
 
     embeddings = OpenAIEmbeddings(  api_key=openai_key   )
 
@@ -100,7 +96,7 @@ if uploaded_file is not None:
         if question == "":
             st.warning( "질문을 입력하세요"   )
         else:
-            with st.spinner(  "답변 생성중..."     ):
+            with st.spinner(  "답변 생성중..."  ,show_time=True  ): 
 
                 chat_box = st.empty()
 
