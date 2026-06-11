@@ -7,3 +7,4 @@ langchain-openai
 langchain-chroma
 langchain-text-splitters
 pypdf
+protobuf<5.0.0
