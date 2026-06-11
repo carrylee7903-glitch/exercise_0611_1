@@ -1,3 +1,9 @@
+# [여기가 마법의 3줄입니다! 무조건 맨 위에 있어야 합니다]
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+# 그 다음부터 원래 있던 코드들을 적어주세요.
 import os
 import tempfile
 import streamlit as st
@@ -5,6 +11,10 @@ from dotenv import load_dotenv
 
 # .env 파일 안의 OPENAI_API_KEY 읽기
 load_dotenv()
+
+# ... (아래는 기존 코드 그대로) ...
+
+
 
 # LangChain 관련 모듈 불러오기
 from langchain_community.document_loaders import PyPDFLoader
