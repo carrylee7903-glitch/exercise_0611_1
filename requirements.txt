@@ -6,6 +6,7 @@ langchain-core
 langchain-openai
 langchain-chroma
 langchain_classic.chains
+langchain_classic.chains.combine_documents
 langchain-text-splitters
 pypdf
 protobuf<5.0.0
