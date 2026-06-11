@@ -4,8 +4,6 @@ langchain
 langchain-community
 langchain-core
 langchain-openai
-langchain-chroma
+faiss-cpu
 langchain-text-splitters
 pypdf
-protobuf<5.0.0
-pysqlite3-binary
