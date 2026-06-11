@@ -4,7 +4,6 @@ langchain>=0.1.17
 langchain-community
 langchain-core
 langchain-openai
-langchain.chains
 faiss-cpu
 langchain-text-splitters
 pypdf
